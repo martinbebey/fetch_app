@@ -11,7 +11,6 @@ import com.developer.fetchapp.model.ListViewState
 
 @Composable
 fun FetchListScreen(
-    fetchedItemsList: List<Item>,
     listViewState: ListViewState
 ){
     when{
@@ -25,7 +24,7 @@ fun FetchListScreen(
 
         else -> {
             LazyColumn(){
-                items(fetchedItemsList){
+                items(listViewState.itemList){
                     itemFromList -> FetchedListItem(item = itemFromList)
                 }
             }

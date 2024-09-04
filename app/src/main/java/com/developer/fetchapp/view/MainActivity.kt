@@ -1,4 +1,4 @@
-package com.developer.fetchapp
+package com.developer.fetchapp.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
