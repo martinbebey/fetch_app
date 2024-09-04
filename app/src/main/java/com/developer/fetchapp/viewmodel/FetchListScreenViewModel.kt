@@ -25,14 +25,18 @@ class FetchListScreenViewModel: ViewModel() {
                     error = null,
                     itemList = response
                 )
+
+                for(item in response){
+                    if(item.name.isEmpty() || item.name.equals("null")){
+                        response.remove(item)
+                    }
+                }
             }
             catch (exception: Exception){
                 _listScreenViewState.value = _listScreenViewState.value.copy(
                     loading = false,
                     error = "Error fetching list ${exception.message}"
                 )
-
-                exception.printStackTrace()
             }
         }
     }

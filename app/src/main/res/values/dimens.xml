@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- list item -->
     <dimen name="list_item_border_stroke">2dp</dimen>
     <dimen name="list_item_boorder_rounded_corner_percent">20dp</dimen>
     <dimen name="list_item_row_padding">8dp</dimen>
+    <dimen name="list_item_text_padding">8dp</dimen>
 </resources>

@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-const val BASE_URL = "https://www.themealdb.com/api/json/v1/1/"
+const val BASE_URL = "https://fetch-hiring.s3.amazonaws.com/"
 const val END_POINT = "hiring.json"
 
 private val retrofit = Retrofit
@@ -18,5 +18,5 @@ val fetchService = retrofit.create(ApiService::class.java)
 
 interface ApiService{
     @GET(END_POINT)
-    suspend fun getListItems(): List<Item>
+    suspend fun getListItems(): MutableList<Item>
 }
