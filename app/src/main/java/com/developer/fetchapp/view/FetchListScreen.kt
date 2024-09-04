@@ -5,8 +5,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import com.developer.fetchapp.model.Item
 import com.developer.fetchapp.model.ListViewState
 
@@ -14,8 +12,7 @@ import com.developer.fetchapp.model.ListViewState
 @Composable
 fun FetchListScreen(
     fetchedItemsList: List<Item>,
-    listViewState: ListViewState,
-    modifier: Modifier = Modifier
+    listViewState: ListViewState
 ){
     when{
         listViewState.loading -> {

@@ -1,5 +1,7 @@
 package com.developer.fetchapp.model
 
+import android.os.Parcelable
+
 data class Item(
     var id: String,
     var listId: String,
@@ -8,5 +10,6 @@ data class Item(
 
 data class ListViewState(
     val loading: Boolean = true,
-    val error: String? = null
+    val error: String? = null,
+    val itemList: List<Item> = emptyList(),
 )
