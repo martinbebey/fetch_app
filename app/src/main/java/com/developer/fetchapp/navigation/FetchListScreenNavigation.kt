@@ -14,6 +14,8 @@ fun FetchListAppNavigation(navController: NavHostController){
     val fetchScreenViewModel: FetchListScreenViewModel = viewModel()
     val viewState by fetchScreenViewModel.listViewState
 
+    fetchScreenViewModel.filterNullOrEmpty()
+
     NavHost(navController = navController, startDestination = Screens.FetchListScreen.route){
         composable(route = Screens.FetchListScreen.route){
             FetchListScreen(listViewState = viewState)

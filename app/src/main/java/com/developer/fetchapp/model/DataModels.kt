@@ -11,5 +11,5 @@ data class Item(
 data class ListViewState(
     val loading: Boolean = true,
     val error: String? = null,
-    val itemList: List<Item> = emptyList(),
+    val itemList: List<Item> = mutableListOf(),
 )
