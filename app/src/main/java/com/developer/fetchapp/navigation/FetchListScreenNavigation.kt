@@ -9,6 +9,9 @@ import androidx.navigation.compose.composable
 import com.developer.fetchapp.view.FetchListScreen
 import com.developer.fetchapp.viewmodel.FetchListScreenViewModel
 
+/**
+ * This controls the navigation for the app
+ **/
 @Composable
 fun FetchListAppNavigation(navController: NavHostController){
     val fetchScreenViewModel: FetchListScreenViewModel = viewModel()

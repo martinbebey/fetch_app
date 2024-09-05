@@ -1,16 +1,16 @@
 package com.developer.fetchapp.viewmodel
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.developer.fetchapp.model.Item
 import com.developer.fetchapp.model.ListViewState
 import com.developer.fetchapp.services.fetchService
 import kotlinx.coroutines.launch
-import kotlin.math.log
 
+/**
+ * This is the viewmodel for the list screen
+ **/
 class FetchListScreenViewModel: ViewModel() {
     private val _listScreenViewState = mutableStateOf(ListViewState())
     val listViewState: State<ListViewState> = _listScreenViewState
@@ -19,6 +19,12 @@ class FetchListScreenViewModel: ViewModel() {
         fetchList()
     }
 
+    /**
+     * Launches the api service for fetching the remote data list in a coroutine (non-blocking asynchronous execution).
+     * All items from the api response with a null or blank name are discarded.
+     * The remaining items are sorted first by listId and then by name.
+     * The resulting list is grouped by listId.
+     **/
     private fun fetchList(){
         viewModelScope.launch {
             try {
@@ -39,8 +45,6 @@ class FetchListScreenViewModel: ViewModel() {
                     loading = false,
                     error = "Error fetching list ${exception.message}"
                 )
-
-                Log.d("mb-", "${exception.printStackTrace()}")
             }
         }
     }

@@ -9,10 +9,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.developer.fetchapp.model.Item
 import com.developer.fetchapp.model.ListViewState
+import com.developer.fetchapp.ui.theme.fetchErrorColour
 
-
+/**
+ * This controls what is displayed on the list screen.
+ * A loading indicator is shown while the data is being fetched.
+ * An error is shown to the user if the fetching operation fails.
+ * Otherwise, if all goes well, then the data is shown
+ *
+ * @param modifier the composable modifier
+ * @param listViewState the state of the fetching operation
+ **/
 @Composable
 fun FetchListScreen(
     modifier: Modifier = Modifier,
@@ -25,7 +33,7 @@ fun FetchListScreen(
             }
 
             listViewState.error != null -> {
-                Text(text = "ERROR OCCURED WHILE FETCHING DATA")
+                Text(text = "ERROR OCCURED WHILE FETCHING DATA", color = fetchErrorColour)
             }
 
             else -> {

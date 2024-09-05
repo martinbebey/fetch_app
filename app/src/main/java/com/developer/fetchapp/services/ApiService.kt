@@ -16,6 +16,9 @@ private val retrofit = Retrofit
 
 val fetchService = retrofit.create(ApiService::class.java)
 
+/**
+ * Service for fetching the remote data list
+ **/
 interface ApiService{
     @GET(END_POINT)
     suspend fun getListItems(): MutableList<Item>

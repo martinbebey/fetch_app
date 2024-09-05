@@ -1,7 +1,5 @@
 package com.developer.fetchapp.model
 
-import android.os.Parcelable
-
 data class Item(
     var id: String,
     var listId: String,

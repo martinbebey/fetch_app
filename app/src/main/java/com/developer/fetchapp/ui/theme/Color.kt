@@ -10,5 +10,6 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
-/* item list screen */
+/* colours for the list screen */
 val ListItemBorderColour = Color(0xFFFFAD45)
+val fetchErrorColour = Color(0xFFF44336)

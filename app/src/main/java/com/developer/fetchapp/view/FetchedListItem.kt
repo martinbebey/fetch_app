@@ -11,11 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.dp
 import com.developer.fetchapp.R
 import com.developer.fetchapp.model.Item
 import com.developer.fetchapp.ui.theme.ListItemBorderColour
 
+/**
+ * This controls what each item in the list will look like on the screen
+ * Each item will display its list id, its name and its id
+ **/
 @Composable
 fun FetchedListItem(
     item: Item
