@@ -19,35 +19,12 @@ class FetchListScreenViewModel: ViewModel() {
         fetchList()
     }
 
-    fun filterNullOrEmpty() {
-
-        val filteredList: MutableList<Item> = _listScreenViewState.value.itemList.toMutableList()
-
-        viewModelScope.launch {
-            try {
-                for(item in filteredList){
-                    if (item.name.isNullOrEmpty()){
-                        filteredList.remove(item)
-                    }
-                }
-            }
-            catch (exception: Exception){
-                Log.d("mb-", "${exception.printStackTrace()}")
-            }
-        }
-
-        _listScreenViewState.value = _listScreenViewState.value.copy(
-            loading = false,
-            error = null,
-            itemList = filteredList
-        )
-    }
-
     private fun fetchList(){
         viewModelScope.launch {
             try {
                 val response = fetchService.getListItems()
 
+                response.removeIf{it.name.isNullOrBlank()}
                 response.sortBy { it.name }
                 response.sortBy { it.listId }
 

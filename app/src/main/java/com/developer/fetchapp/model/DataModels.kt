@@ -5,7 +5,7 @@ import android.os.Parcelable
 data class Item(
     var id: String,
     var listId: String,
-    var name: String
+    var name: String?
 )
 
 data class ListViewState(
