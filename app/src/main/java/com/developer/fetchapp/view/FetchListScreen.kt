@@ -9,6 +9,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.developer.fetchapp.R
 import com.developer.fetchapp.model.ListViewState
 import com.developer.fetchapp.ui.theme.fetchErrorColour
 
@@ -33,7 +35,7 @@ fun FetchListScreen(
             }
 
             listViewState.error != null -> {
-                Text(text = "ERROR OCCURED WHILE FETCHING DATA", color = fetchErrorColour)
+                Text(text = stringResource(id = R.string.list_screen_error_text), color = fetchErrorColour)
             }
 
             else -> {

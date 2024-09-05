@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">FetchApp</string>
+
+    <!-- list screen -->
+    <string name="list_screen_error_text">ERROR OCCURRED WHILE FETCHING DATA</string>
+
+    <!-- list item -->
+    <string name="list_item_lid_label">Lid:</string>
+    <string name="list_item_name_label">Name:</string>
+    <string name="list_item_id_label">ID:</string>
 </resources>
