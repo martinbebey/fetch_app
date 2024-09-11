@@ -1,10 +1,11 @@
 package com.developer.fetchapp.viewmodel
 
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.developer.fetchapp.model.ListViewState
+import com.developer.fetchapp.model.ViewState
 import com.developer.fetchapp.services.fetchService
 import kotlinx.coroutines.launch
 
@@ -12,8 +13,8 @@ import kotlinx.coroutines.launch
  * This is the viewmodel for the list screen
  **/
 class FetchListScreenViewModel: ViewModel() {
-    private val _listScreenViewState = mutableStateOf(ListViewState())
-    val listViewState: State<ListViewState> = _listScreenViewState
+    private val _listScreenViewState: MutableState<ViewState> = mutableStateOf(ViewState.Loading)
+    val listViewState: State<ViewState> = _listScreenViewState
 
     init {
         fetchList()
@@ -34,17 +35,10 @@ class FetchListScreenViewModel: ViewModel() {
                 response.sortBy { it.name }
                 response.sortBy { it.listId }
 
-                _listScreenViewState.value = _listScreenViewState.value.copy(
-                    loading = false,
-                    error = null,
-                    itemList = response
-                )
+                _listScreenViewState.value = ViewState.Success(response)
             }
             catch (exception: Exception){
-                _listScreenViewState.value = _listScreenViewState.value.copy(
-                    loading = false,
-                    error = "Error fetching list ${exception.message}"
-                )
+                _listScreenViewState.value = ViewState.Error("error loading data")
             }
         }
     }

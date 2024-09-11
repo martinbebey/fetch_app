@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.developer.fetchapp.R
-import com.developer.fetchapp.model.ListViewState
+import com.developer.fetchapp.model.ViewState
 import com.developer.fetchapp.ui.theme.fetchErrorColour
 
 /**
@@ -26,19 +26,19 @@ import com.developer.fetchapp.ui.theme.fetchErrorColour
 @Composable
 fun FetchListScreen(
     modifier: Modifier = Modifier,
-    listViewState: ListViewState
+    listViewState: ViewState
 ){
     Box(modifier = Modifier.fillMaxSize()){
-        when{
-            listViewState.loading -> {
+        when(listViewState){
+           is ViewState.Loading -> {
                 CircularProgressIndicator(modifier.align(Alignment.Center))
             }
 
-            listViewState.error != null -> {
+           is ViewState.Error -> {
                 Text(text = stringResource(id = R.string.list_screen_error_text), color = fetchErrorColour)
             }
 
-            else -> {
+            is ViewState.Success -> {
                 LazyColumn(){
                     items(listViewState.itemList){
                             itemFromList -> FetchedListItem(item = itemFromList)
